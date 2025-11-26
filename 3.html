@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debugging Task</title>
+</head>
+<body>
+  <p id="message">Original Message</p>
+  <button id="textButton">Change Text</button>
+  <br /><br />
+  <div id="box" style="width: 100px; height: 100px; background-color: lightgray;"></div>
+  <button id="colorButton">Change Background</button>
+
+  <script>
+    // Select the correct <p> by its actual id "message"
+    const para = document.querySelector('#message'); // FIX: '#massage' -> '#message'
+
+    // Get the button by id (getElementById is the correct method)
+    const textButton = document.getElementById('textButton'); // FIX: getElementByName -> getElementById
+
+    // Attach a click event listener (correct method name)
+    textButton.addEventListener('click', () => { // FIX: addClickEventListener -> addEventListener
+      para.textContent = 'New Message'; // FIX: contentText -> textContent
+    });
+
+    // Select the box and the color button correctly
+    const box = document.getElementById('box');
+    const colorButton = document.getElementById('colorButton');
+
+    // Change background color on click (correct 'style' property)
+    colorButton.addEventListener('click', () => {
+      box.style.backgroundColor = 'blue'; // FIX: styl -> style
+    });
+  </script>
+</body>
+</html>
