@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Management App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="book.css">
+  <script type="module" src="book.js"></script>
+
+  <style>
+    body {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    aside {
+      background: #f4f4f4;
+      padding: 20px;
+      height: 100vh;
+    }
+    main {
+      padding: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 10px;
+      background: #fff;
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .actions {
+      margin-top: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    .actions button {
+      flex: 1;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside>
+    <h2>Add Book</h2>
+    <form id="addBookForm">
+      <input type="text" id="title" placeholder="Title" required>
+      <input type="text" id="author" placeholder="Author" required>
+      <input type="number" id="price" placeholder="Price" required>
+      <input type="url" id="imageUrl" placeholder="Image URL">
+      <button type="submit">Add Book</button>
+    </form>
+  </aside>
+
+  <!-- Main content -->
+  <main>
+    <h2>Book List</h2>
+    <section id="grid" class="grid">
+      <!-- Book cards will be injected here -->
+      <!-- Example card -->
+      <!--
+      <div class="card">
+        <img src="cover.jpg" alt="Book Cover">
+        <h3>Book Title</h3>
+        <p>Author Name</p>
+        <p>₹499</p>
+        <div class="actions">
+          <button>Update Author</button>
+          <button>Delete</button>
+          <button>View Details</button>
+        </div>
+      </div>
+      -->
+    </section>
+  </main>
+
+  <!-- Firebase + JS scripts go here -->
+  <script type="module" src="book.js"></script>
+</body>
+</html>

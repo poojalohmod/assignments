@@ -1,0 +1,30 @@
+/* Card Container */
+.card {
+    width: 300px;
+    height: 400px;
+    padding: 20px;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Profile Image */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Text Styling */
+h2 {
+    margin-top: 20px;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 16px;
+}
