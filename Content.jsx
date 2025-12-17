@@ -1,6 +1,22 @@
-// src/Content.jsx
-function Content() {
-  return <h2>This is Main Content</h2>;
+import { useState } from "react";
+
+function Counter() {
+  // Step 1: Initialize state
+  const [count, setCount] = useState(0);
+
+  // Step 2: Handle button click
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+
+  // Step 3: Render UI
+  return (
+    <div>
+      <h3>{count}</h3>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
 }
 
-export default Content;
+export default Counter;
+
