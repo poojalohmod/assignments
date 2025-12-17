@@ -1,16 +1,30 @@
-import MessageCard from "./MessageCard";
+import { useState, useEffect } from "react";
 
-function App() {
+function UserData() {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users/1")
+      .then((res) => res.json())
+      .then((data) => {
+        setUser(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
-      <h2>Reusable Message Cards</h2>
-      <MessageCard title="Welcome" message="This is the first message card." />
-      <MessageCard title="Reminder" message="Don’t forget to submit your assignment!" />
-      <MessageCard title="Update" message="React project deadline extended to Friday." />
-      <MessageCard title="Note" message="Props make components reusable and dynamic." />
+      <h2>{user.name}</h2>
+      <p>Email: {user.email}</p>
+      <p>Phone: {user.phone}</p>
     </div>
   );
 }
 
-export default App;
+export default UserData;
 
