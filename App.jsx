@@ -1,22 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-function Counter() {
-  const [count, setCount] = useState(0);
+function ColorToggle() {
+  const [isRed, setIsRed] = useState(true);
 
-  useEffect(() => {
-    if (count !== 0 && count % 3 === 0) {
-      alert(`The current number ${count} is divisible by 3`);
-    }
-  }, [count]); // runs only when count changes
+  const toggleColor = () => {
+    setIsRed(!isRed);
+  };
 
   return (
     <div>
-      <h2>Count: {count}</h2>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <div
+        style={{
+          backgroundColor: isRed ? "red" : "blue",
+          color: "white",
+          padding: "20px",
+          textAlign: "center",
+        }}
+      >
+        This is a colored div
+      </div>
+      <button onClick={toggleColor}>Toggle Color</button>
     </div>
   );
 }
 
-export default Counter;
+export default ColorToggle;
+
 
 
