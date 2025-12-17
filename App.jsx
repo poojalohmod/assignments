@@ -1,30 +1,22 @@
 import { useState, useEffect } from "react";
 
-function UserData() {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+function Counter() {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users/1")
-      .then((res) => res.json())
-      .then((data) => {
-        setUser(data);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+    if (count !== 0 && count % 3 === 0) {
+      alert(`The current number ${count} is divisible by 3`);
+    }
+  }, [count]); // runs only when count changes
 
   return (
     <div>
-      <h2>{user.name}</h2>
-      <p>Email: {user.email}</p>
-      <p>Phone: {user.phone}</p>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </div>
   );
 }
 
-export default UserData;
+export default Counter;
+
 
