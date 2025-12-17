@@ -1,30 +1,14 @@
-import { useState } from "react";
+import Todos from "./components/Todos";
 
-function ColorToggle() {
-  const [isRed, setIsRed] = useState(true);
-
-  const toggleColor = () => {
-    setIsRed(!isRed);
-  };
-
+function App() {
   return (
     <div>
-      <div
-        style={{
-          backgroundColor: isRed ? "red" : "blue",
-          color: "white",
-          padding: "20px",
-          textAlign: "center",
-        }}
-      >
-        This is a colored div
-      </div>
-      <button onClick={toggleColor}>Toggle Color</button>
+      <h1>Context API Todo App</h1>
+      <Todos />
     </div>
   );
 }
 
-export default ColorToggle;
-
+export default App;
 
 
