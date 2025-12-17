@@ -1,7 +1,8 @@
 import Component2 from "./Component2";
+import AppContext from "./AppContext";
 
 function Component1() {
-  const props = {
+  const values = {
     a: "Alpha",
     b: "Beta",
     c: "Gamma",
@@ -11,12 +12,13 @@ function Component1() {
   };
 
   return (
-    <div>
-      <h2>Component1</h2>
-      <Component2 {...props} />
-    </div>
+    <AppContext.Provider value={values}>
+      <div>
+        <h2>Component1</h2>
+        <Component2 />
+      </div>
+    </AppContext.Provider>
   );
 }
 
 export default Component1;
-
