@@ -1,14 +1,9 @@
-import Todos from "./components/Todos";
+// src/App.jsx
+import React from "react";
 
 function App() {
-  return (
-    <div>
-      <h1>Context API Todo App</h1>
-      <Todos />
-    </div>
-  );
+  return <h1>Hello React Router</h1>;
 }
 
-export default App;
-
+export default App;   // <-- this is required
 
