@@ -1,40 +1,22 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import Todos from "./components/Todos";
-import TodoDetails from "./components/TodoDetails";
-import ProtectedRoute from "./components/ProtectedRoute";
+import React, { useState, Suspense, lazy } from "react";
 
-function App() {
+// Lazy load the heavy child component
+const HeavyComponent = lazy(() => import("./HeavyComponent"));
+
+export default function App() {
+  const [counter, setCounter] = useState(0);
+
   return (
     <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        
-        {/* Protected Routes */}
-        <Route 
-          path="/todos" 
-          element={
-            <ProtectedRoute>
-              <Todos />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/todos/:todoId" 
-          element={
-            <ProtectedRoute>
-              <TodoDetails />
-            </ProtectedRoute>
-          } 
-        />
-      </Routes>
+      <h1>React.memo & Lazy Loading Demo</h1>
+      <p>Counter: {counter}</p>
+      <button onClick={() => setCounter(counter + 1)}>Increment</button>
+
+      {/* Lazy load with Suspense */}
+      <Suspense fallback={<div>Loading heavy component...</div>}>
+        <HeavyComponent />
+      </Suspense>
     </div>
   );
 }
 
-export default App;
