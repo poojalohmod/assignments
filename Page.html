@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS Basics Exploration</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Optional custom CSS -->
+  <link rel="stylesheet" href="index.css">
+  <script type="module" src="main.jsx"></script>
+
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="flex flex-col md:flex-row md:space-x-6 bg-gray-100 p-4">
+    <a href="#" class="hover:text-blue-600">Home</a>
+    <a href="#" class="hover:text-blue-600">Features</a>
+    <a href="#" class="hover:text-blue-600">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="text-center p-8">
+    <h2 class="text-xl md:text-3xl lg:text-5xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+      Welcome to Tailwind Demo
+    </h2>
+    <img src="images/hero.jpg" class="mx-auto mt-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300" alt="Hero Image">
+  </section>
+
+  <!-- Features Section -->
+  <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-8">
+    <div class="bg-white shadow-md p-4">Feature 1</div>
+    <div class="bg-white shadow-md p-4">Feature 2</div>
+    <div class="bg-white shadow-md p-4">Feature 3</div>
+  </section>
+
+  <!-- Table Section -->
+  <section class="p-8">
+    <table class="table-auto border-collapse border border-gray-300 w-full">
+      <thead>
+        <tr class="bg-gray-200">
+          <th class="border px-4 py-2">Col 1</th>
+          <th class="border px-4 py-2">Col 2</th>
+          <th class="border px-4 py-2">Col 3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="hover:bg-gray-100">
+          <td class="border px-4 py-2">Row 1</td>
+          <td class="border px-4 py-2">Data</td>
+          <td class="border px-4 py-2">Data</td>
+        </tr>
+        <tr class="bg-gray-50 hover:bg-gray-100">
+          <td class="border px-4 py-2">Row 2</td>
+          <td class="border px-4 py-2">Data</td>
+          <td class="border px-4 py-2">Data</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="p-8">
+    <form class="space-y-4">
+      <input type="text" placeholder="Name" class="w-full rounded border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <input type="email" placeholder="Email" class="w-full rounded border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <input type="password" placeholder="Password" class="w-full rounded border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+      <button type="submit" class="rounded bg-blue-500 text-white px-4 py-2 hover:bg-blue-600">
+        Submit
+      </button>
+    </form>
+  </section>
+
+</body>
+</html>
+
