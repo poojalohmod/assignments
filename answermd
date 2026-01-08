@@ -1,0 +1,73 @@
+Understanding Project Management in Node.js
+
+a. Package Managers
+
+What is a package manager?
+A package manager is a tool that helps developers install, update, and manage external libraries or modules in a project.
+Example: Instead of manually downloading a library, you can run a single command like npm install express.
+
+Why do we need package managers in backend development?
+They save time by automating installation of dependencies.
+They ensure consistency across different environments such as development, testing, and production.
+They allow easy sharing of projects with others by listing required packages.
+
+Problems faced if package managers are not used
+Developers would need to manually download and configure libraries.
+It becomes difficult to track versions of dependencies.
+Sharing projects becomes complicated because teammates won’t know which libraries are required.
+
+b. NPM (Node Package Manager)
+
+What is NPM?
+NPM is the default package manager for Node.js.
+It comes bundled when you install Node.js.
+
+Why is NPM important for Node.js applications?
+It provides access to thousands of open-source libraries.
+It makes dependency management simple and reliable.
+It helps in project initialization and publishing packages.
+
+How NPM helps in managing dependencies
+It stores all required packages in a node_modules folder.
+It keeps track of versions in package.json and package-lock.json.
+It allows easy installation (npm install) and removal (npm uninstall) of packages.
+
+c. Backend Project Initialization
+
+Command used to initialize a backend project
+npm init
+
+What npm init does
+It starts a step-by-step setup process asking details like project name, version, description, entry file, etc.
+It creates a package.json file with the provided information.
+
+What npm init -y does
+It skips the questions and creates a package.json file with default values.
+It is useful for quickly starting a project.
+
+d. Files and Folders Created After Project Initialization
+
+package.json
+Contains metadata about the project such as name, version, description.
+Lists dependencies and scripts.
+Acts as the blueprint of the project.
+
+node_modules
+Folder where all installed packages are stored.
+Automatically created when you install dependencies.
+Can become very large because it contains all libraries and their sub-dependencies.
+
+package-lock.json
+Records the exact versions of installed packages.
+Ensures consistency when the project is installed on another machine.
+Prevents version conflicts.
+
+Which files or folders should not be pushed to GitHub and why
+node_modules should not be pushed because it is very large in size and can be recreated using npm install from package.json. Pushing it wastes storage and slows down cloning.
+
+Which files must be committed and why
+package.json must be committed because it defines project dependencies and scripts and is essential for others to run the project.
+package-lock.json must be committed because it ensures exact versions of dependencies are installed and prevents bugs caused by version mismatches.
+
+Summary
+Package managers like NPM make backend development easier by handling dependencies and project setup. With npm init, developers can quickly start projects, and files like package.json and package-lock.json ensure consistency across environments. Avoid pushing node_modules to GitHub, but always commit package.json and package-lock.json.
