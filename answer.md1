@@ -1,0 +1,91 @@
+Node.js Internals
+
+Node.js Architecture
+- Node.js is built on single-threaded, event-driven architecture.
+- It uses the V8 JavaScript engine to execute JavaScript code.
+- The event loop and libuv library handle asynchronous operations.
+- Native bindings connect JavaScript with lower-level system functions.
+- This design makes Node.js lightweight, efficient, and ideal for I/O-heavy applications.
+
+JavaScript Engine (V8)
+- Developed by Google, written in C++.
+- Compiles JavaScript into machine code for fast execution.
+- Provides features like Just-In-Time (JIT) compilation and garbage collection.
+- Node.js relies on V8 to run JavaScript outside the browser.
+
+Node.js Core APIs
+- Built-in modules like fs, http, crypto, path, etc.
+- Provide access to system-level operations (file system, networking, cryptography).
+- Expose asynchronous and synchronous methods for developers.
+
+Native Bindings
+- Glue code between JavaScript and C/C++ libraries.
+- Allow Node.js to call system-level functions.
+- Example: fs module uses native bindings to interact with the operating system’s file system.
+
+Event Loop
+- Central mechanism that manages asynchronous tasks.
+- Continuously checks queues for pending tasks and executes callbacks.
+- Ensures non-blocking I/O by delegating heavy tasks to libuv and thread pool.
+
+libuv
+What is libuv?
+- A C library that provides cross-platform support for asynchronous I/O.
+
+Why Node.js needs libuv
+- JavaScript alone cannot handle system-level operations like networking or file I/O.
+- libuv bridges this gap by managing threads, event loop, and async tasks.
+
+Responsibilities of libuv
+- Implements the event loop.
+- Manages the thread pool.
+- Handles asynchronous I/O operations (file system, DNS, networking).
+- Provides abstraction for different operating systems.
+
+Thread Pool
+What is a thread pool?
+- A collection of worker threads managed by libuv.
+- Used to execute heavy or blocking tasks in parallel.
+
+Why Node.js uses a thread pool
+- Node.js is single-threaded, but some operations (like file I/O or crypto) are blocking.
+- Thread pool offloads these tasks to background threads, keeping the main thread free.
+
+Operations handled by the thread pool
+- File system operations (fs.readFile, fs.writeFile).
+- DNS lookups.
+- Compression/decompression.
+- Cryptographic functions.
+
+Worker Threads
+What are worker threads?
+- A Node.js module (worker_threads) that allows running JavaScript in parallel threads.
+- Each worker has its own event loop and memory space.
+
+Why are worker threads needed?
+- Useful for CPU-intensive tasks (e.g., image processing, data computation).
+- Prevents blocking the main event loop.
+
+Difference between thread pool and worker threads
+- Thread Pool: Managed by libuv, used for system-level async tasks (I/O, crypto).
+- Worker Threads: Explicitly created by developers for parallel JavaScript execution.
+
+Event Loop Queues
+Macro Task Queue
+- Contains tasks like setTimeout, setInterval, setImmediate, I/O callbacks.
+- Executed one at a time in FIFO order.
+
+Micro Task Queue
+- Contains tasks like process.nextTick, Promises (.then, .catch, .finally).
+- Executed immediately after the current operation, before macro tasks.
+
+Execution Priority
+- Micro tasks have higher priority than macro tasks.
+- After each macro task, all micro tasks are executed before moving to the next macro task.
+
+Examples
+- Macro Task: setTimeout(() => console.log("Macro Task"), 0)
+- Micro Task: Promise.resolve().then(() => console.log("Micro Task"))
+
+Summary
+Node.js combines the V8 engine, libuv, event loop, thread pool, and worker threads to provide a powerful, non-blocking runtime. Its queue system ensures efficient scheduling of tasks, making it ideal for scalable applications.
