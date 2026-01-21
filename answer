@@ -1,0 +1,29 @@
+Database Fundamentals – Conceptual Understanding  
+
+1. Why is db.json not suitable as a database for real projects?  
+Using a simple JSON file (db.json) as a database is not practical for real-world applications because:  
+- Performance Issues: File-based storage reads and writes the entire file for every operation, which becomes slow as the dataset grows.  
+- Scalability Limitations: Cannot handle large amounts of data efficiently and has no support for distributed systems or horizontal scaling.  
+- Reliability Concerns: High risk of data corruption if multiple processes try to access or modify the file simultaneously. No built-in mechanisms for backup, recovery, or transaction management.  
+- Concurrency Problems: Lacks proper handling of multiple users or requests at the same time, leading to race conditions.  
+
+2. Ideal Characteristics of a Database System  
+A robust database system should provide more than just storage. Key characteristics include:  
+- Performance: Fast query execution and optimized indexing for large datasets.  
+- Concurrency: Ability to handle multiple users and operations simultaneously without conflicts.  
+- Reliability: Ensures data is consistently available and protected against failures.  
+- Data Integrity: Enforces rules (constraints, validations) to maintain accuracy and consistency of data.  
+- Scalability: Supports growth in data volume and user load, both vertically (hardware upgrades) and horizontally (distributed systems).  
+- Fault Tolerance: Recovers gracefully from crashes or hardware failures using replication and backups.  
+
+3. Types of Databases and Their Use Cases  
+Relational Databases (SQL)  
+Definition: Store data in structured tables with rows and columns.  
+Examples: MySQL, PostgreSQL, Oracle, SQL Server.  
+Use Cases: Banking systems (transactions, balances), e-commerce platforms (products, orders, customers), enterprise applications requiring strict data integrity.  
+
+Non-Relational Databases (NoSQL)  
+Definition: Store data in flexible formats (documents, key-value pairs, graphs, wide-column).  
+Examples: MongoDB, Cassandra, Redis, Neo4j.  
+Use Cases: Social media apps (user profiles, posts, comments), real-time analytics (log data, sensor data), content management systems with unstructured or semi-structured data.  
+
