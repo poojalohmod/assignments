@@ -1,0 +1,40 @@
+Schema Design Fundamentals – Theory  
+
+1. What schema design is and what a database schema represents  
+Schema design is the process of defining how data will be organized and structured inside a relational database. A database schema represents the logical blueprint of the database, including tables, columns, relationships, constraints, and rules. It acts as a map that guides how data is stored, accessed, and maintained.  
+
+2. Why schema design is required before writing backend code  
+Schema design ensures that the backend code interacts with a well-defined and consistent data structure. Without a proper schema, developers may face issues with data integrity, mismatched queries, or inefficient storage. Designing the schema first provides clarity, reduces errors, and makes backend development more reliable and scalable.  
+
+3. How poor schema design impacts data consistency, maintenance, and scalability  
+- Poor schema design can lead to duplicate or inconsistent data.  
+- Maintenance becomes difficult because changes in one part of the database may break other parts.  
+- Scalability suffers since inefficient structures slow down queries and prevent the database from handling large volumes of data effectively.  
+
+4. What validations are in schema design and why databases enforce validations  
+Validations are rules applied to ensure data accuracy and integrity. Examples include:  
+- NOT NULL: Ensures a column must always have a value.  
+- UNIQUE: Prevents duplicate values in a column.  
+- DEFAULT: Provides a fallback value when none is supplied.  
+- PRIMARY KEY: Guarantees each record is uniquely identifiable.  
+Databases enforce these validations to maintain consistency, prevent errors, and ensure reliable operations.  
+
+5. The difference between a database schema and a database table  
+- A database schema is the overall structure or blueprint of the database, defining how tables relate to each other and what rules apply.  
+- A database table is a single component within the schema that stores data about one entity in rows and columns.  
+
+6. Why a table should represent only one entity  
+Each table should represent a single entity (e.g., Users, Orders, Products) to avoid confusion and redundancy. Mixing multiple entities in one table makes queries complex, reduces clarity, and increases the risk of inconsistent data.  
+
+7. Why redundant or derived data should be avoided in table design  
+Redundant data wastes storage and can lead to inconsistencies when updates are not applied everywhere. Derived data (like storing totals or calculated values) should be avoided because it can be recalculated when needed. This ensures accuracy and reduces maintenance overhead.  
+
+8. The importance of choosing correct data types while designing tables  
+Choosing the right data type ensures efficient storage, faster queries, and accurate representation of values. For example:  
+- Using INTEGER for IDs ensures uniqueness and fast indexing.  
+- Using VARCHAR for names allows flexibility in text length.  
+- Using DATE or TIMESTAMP ensures proper handling of time-based data.  
+Incorrect data types can lead to wasted space, slower performance, and errors in data handling.  
+
+
+
